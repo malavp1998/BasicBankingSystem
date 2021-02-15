@@ -3,8 +3,6 @@ import {Button,Segment, Table,Form} from "semantic-ui-react";
 import axios from 'axios'
 import Transfer from './Transfer';
 //import { Link } from 'react-router-dom';
-//import Transfer from './Transfer';
-
 //import ReactDOM from 'react-dom';
 
 class Accounts extends React.Component {
@@ -14,7 +12,8 @@ class Accounts extends React.Component {
     users:[],
     user:"",
     flag:false,
-    transferTo:""
+    transferTo:"",
+    balance:null,
   };
 
   }
@@ -43,13 +42,29 @@ async getUsers() {
    })
 }
 
-handleTransferto=(event)=>{
-    this.setState({transferTo: event.target.value})  
+handleTransferto=(event, { name, value})=>{
+     this.setState({transferTo:value})  
+  
 }
-
+handleBalance=(event)=>{
+     this.setState({balance:event.target.value})
+    //  console.log(event.target.value)
+}
 handleClick=()=>{
-    console.log(this.state.transferTo)
-    console.log(this.state.user)
+    // console.log(this.state.transferTo)
+    // console.log(this.state.balance)
+     axios.get('http://localhost:8080/update/'+this.state.user.id+'/'+this.state.balance+'/'+this.state.transferTo)
+    .then(
+        response => {
+           this.setState({flag:false})
+           this.getUsers()
+        }
+    )
+    .catch(
+        error => {
+            console.log(error) 
+        }
+    )
 }
   render() {
     const users=this.state.users
@@ -80,9 +95,9 @@ handleClick=()=>{
             </Table.Body>
         </Table>
              <Form>
-                 <Form.Select fluid label='Transfer To' options={option}  placeholder='name' onChange={()=>this.handleTransferto}  />
+                 <Form.Select fluid label='Transfer To' options={option}  placeholder='name' value={this.state.transferTo} onChange={(e, { name, value})=>this.handleTransferto(e, { name, value})}  />
                  <Form.Group widths='equal'>
-                     <Form.Input fluid label='Amount' placeholder='value'  />
+                     <Form.Input fluid label='Amount' placeholder='value' onChange={this.handleBalance} />
                  </Form.Group> 
                  <Form.Button  onClick={this.handleClick} >Transfer</Form.Button>
              </Form>
