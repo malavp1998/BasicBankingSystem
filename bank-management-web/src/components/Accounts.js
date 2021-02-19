@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button,Segment, Table,Form} from "semantic-ui-react";
+import {Button,Segment, Table,Form,Container} from "semantic-ui-react";
 import axios from 'axios'
-import Transfer from './Transfer';
+//import Transfer from './Transfer';
 //import { Link } from 'react-router-dom';
 //import ReactDOM from 'react-dom';
 
@@ -56,7 +56,7 @@ handleClick=()=>{
      axios.get('http://localhost:8080/update/'+this.state.user.id+'/'+this.state.balance+'/'+this.state.transferTo)
     .then(
         response => {
-           this.setState({flag:false})
+           this.setState({flag:false,user:""})
            this.getUsers()
         }
     )
@@ -65,6 +65,7 @@ handleClick=()=>{
             console.log(error) 
         }
     )
+    alert('Transaction successfull')
 }
   render() {
     const users=this.state.users
@@ -107,6 +108,7 @@ handleClick=()=>{
   
     return(
     <div>
+        <Container as='h1' textAlign='center'>All Accounts</Container>
        <Segment inverted>
       <Table size='small' >
           <Table.Header >

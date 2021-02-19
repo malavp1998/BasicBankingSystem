@@ -8,7 +8,7 @@ class Nav extends React.Component {
     return ( 
       <div >
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-          <a className="navbar-brand" href="https://www.google.com"><img src={lo} className='img-thumbnail' width="40" height="40" alt="" /> Indian Bank </a>
+          <a className="navbar-brand" href="https://www.google.com"><img src={lo} className='img-thumbnail' width="40" height="40" alt="" />Neemotha Bank </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,7 +24,7 @@ class Nav extends React.Component {
                 <Link to="/create/user" className="nav-link ml-2">Create User</Link>
               </li>
               <li className="nav-item">
-                <Link to="/create/user" className="nav-link ml-2">Transaction history</Link>
+                <Link to="/transfer" className="nav-link ml-2">Transaction history</Link>
               </li>
             </ul>
           </div>

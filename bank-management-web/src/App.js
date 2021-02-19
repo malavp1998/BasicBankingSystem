@@ -18,8 +18,9 @@ class App extends React.Component {
        <Switch>
         <Route path="/accounts" component={Accounts} />
         <Route path="/about" component={About} />
-        <Route path="/create/user" component={CreateUser} />
         <Route path="/transfer" component={Transfer} />
+        <Route path="/create/user" component={CreateUser} />
+        
       </Switch> 
       </div>
 

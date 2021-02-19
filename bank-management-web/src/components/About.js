@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { Grid ,Image} from 'semantic-ui-react'
+import bank from './images/bank1.JPG'
 class About extends Component {
   constructor(props) {
     super(props);
@@ -7,40 +8,40 @@ class About extends Component {
     this.state = {
       city: ""
     };
-
-    this.onHandleChange = this.onHandleChange.bind(this);
-    this.onHandleSubmit = this.onHandleSubmit.bind(this);
   }
-//added java
+
   render() {
     return (
-      <form>
-        <input
-          id="mainInput"
-          onChange={this.onHandleChange}
-          placeholder="Get current weather..."
-          value={this.state.city}
-          type="text"
-        />
-        <button onClick={this.onHandleSubmit} type="submit">
-          Search!
-        </button>
-      </form>
-    );
-  }
+      <div>
+    <div style={{backgroundColor:'#d1885e'}}>|
+      <Grid >
+      <Grid.Row >
+        <Grid.Column width={8}>
+        <p style={{padding:'100px',paddingLeft:'350px'}}> 
+         <h3 style={{paddingLeft:'26px'}}>Welcome to </h3>
+         <h1 style={{fontFamily:'cursive',lineHeight:'0.0011'}}>Indian Bank</h1>
+        </p> 
+        </Grid.Column>
+        <Grid.Column width={8}>
+        <Image size='large' rounded src={bank} />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+    </div>
 
-  onHandleChange(e) {
-    this.setState({
-      city: e.target.value
-    });
-  }
+    <div >
+    
+ 
+    </div>
+   
 
-  onHandleSubmit(e) {
-    e.preventDefault();
-    const city = this.state.city;
-    this.props.onSearchTermChange(city);
-    this.mainInput.value = "";
+    </div>
+
+    )
   }
+  
+
+ 
 }
 
 export default About;
