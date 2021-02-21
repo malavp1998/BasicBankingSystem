@@ -22,7 +22,7 @@ class Accounts extends React.Component {
 }
 
 async getUsers() {
-    const url = 'http://localhost:8080/user/get/all';
+    const url = '/user/get/all';
     await axios.get(url)
     .then(
         response => {
@@ -53,7 +53,7 @@ handleBalance=(event)=>{
 handleClick=()=>{
     // console.log(this.state.transferTo)
     // console.log(this.state.balance)
-     axios.get('http://localhost:8080/update/'+this.state.user.id+'/'+this.state.balance+'/'+this.state.transferTo)
+     axios.get('/update/'+this.state.user.id+'/'+this.state.balance+'/'+this.state.transferTo)
     .then(
         response => {
            this.setState({flag:false,user:""})

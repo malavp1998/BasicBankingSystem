@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { Grid ,Image} from 'semantic-ui-react'
+import { Grid ,Image,Card,Button} from 'semantic-ui-react'
 import bank from './images/bank1.JPG'
+import ts from './images/ts.png'
+import transaction from './images/transaction.png'
+import userjpg from './images/userjpg.jpg'
+import { Link } from 'react-router-dom'
 class About extends Component {
   constructor(props) {
     super(props);
@@ -28,13 +32,51 @@ class About extends Component {
       </Grid.Row>
     </Grid>
     </div>
-
-    <div >
+    <div style={{backgroundColor:'rgb(204 222 207)',padding:'50px'}}>
+    <Card.Group itemsPerRow={3}>
+      <Card>
+    <Image  src={userjpg} size='small' wrapped ui={false} />
+    <Card.Content textAlign='center'>
+         
     
- 
+   
+      <Card.Header>   <Button color='blue' as={Link} to='/create/user'>Create User</Button></Card.Header>
+  
+    </Card.Content>
+    <Card.Content extra>
+     
+    </Card.Content>
+  </Card>
+  <Card>
+    <Image src={transaction} size='small' wrapped ui={false} />
+    <Card.Content textAlign='center'>
+         
+    
+   
+      <Card.Header>   <Button color='blue' as={Link} to='/accounts'> Make a Transaction</Button></Card.Header>
+  
+    </Card.Content>
+    <Card.Content extra>
+     
+    </Card.Content>
+  </Card>
+  <Card>
+    <Image src={ts} size='small' wrapped ui={false} />
+    <Card.Content textAlign='center'>
+         
+    
+   
+      <Card.Header>   <Button color='blue' as={Link} to='/transfer'>Transaction History</Button></Card.Header>
+  
+    </Card.Content>
+    <Card.Content extra>
+     
+    </Card.Content>
+  </Card>
+
+  </Card.Group>
     </div>
    
-
     </div>
 
     )

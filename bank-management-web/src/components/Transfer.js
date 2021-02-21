@@ -15,7 +15,7 @@ class Transfer extends React.Component{
 }
 
 async getTransaction() {
-    const url = 'http://localhost:8080/transaction/get/all';
+    const url = '/transaction/get/all';
     await axios.get(url)
     .then(
         response => {

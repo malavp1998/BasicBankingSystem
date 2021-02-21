@@ -62,7 +62,7 @@ public class UserController {
         log.info("Worling");
         Transaction newTransaction =new Transaction(sender,name,balance);
            transactionRepository.save(newTransaction);
-     return "succes";
+     return "success";
 
 
     }

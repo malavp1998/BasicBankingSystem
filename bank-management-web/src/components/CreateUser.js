@@ -23,7 +23,7 @@ handleSubmit=(event)=>{
       balance:this.state.balance
     }
  //   axios.post('http://localhost:8080/user/add',{user})
-    axios('http://localhost:8080/user/add',{
+    axios('/user/add',{
    method: 'POST',
    data : user,
    headers: {
